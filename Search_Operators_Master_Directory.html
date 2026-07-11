@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search Operators Master Guide</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen pb-16">
+
+    <!-- Header Section -->
+    <header class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="flex space-x-1 font-extrabold text-2xl tracking-tight">
+                    <span class="text-blue-600">G</span>
+                    <span class="text-red-500">o</span>
+                    <span class="text-yellow-500">o</span>
+                    <span class="text-blue-500">g</span>
+                    <span class="text-green-500">l</span>
+                    <span class="text-red-500">e</span>
+                </div>
+                <div class="h-6 w-[2px] bg-slate-300 dark:bg-slate-700"></div>
+                <h1 class="text-lg font-bold tracking-tight text-slate-700 dark:text-slate-300">
+                    Search Operators Master Directory <span class="text-sm font-medium text-slate-500">(48 Operators & Combos)</span>
+                </h1>
+            </div>
+
+            <!-- Theme Toggle & Quick Info -->
+            <div class="flex items-center space-x-4">
+                <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition" aria-label="Toggle Theme">
+                    <!-- Light Mode Icon -->
+                    <svg id="lightIcon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m2.828 0l-.707-.707m12.728-12.728l-.707-.707M12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+                    <!-- Dark Mode Icon -->
+                    <svg id="darkIcon" class="w-5 h-5 block dark:hidden text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <!-- Stats Banner -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm text-center">
+                <div class="text-3xl font-extrabold text-blue-600 dark:text-blue-400" id="totalCount">48</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1 uppercase tracking-wider">Усього операторів / Total Operators</div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm text-center">
+                <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400" id="activeCount">38</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1 uppercase tracking-wider">Активні / Active</div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm text-center">
+                <div class="text-3xl font-extrabold text-amber-500 dark:text-amber-400" id="comboCount">6</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1 uppercase tracking-wider">Комбінації / Power Combos</div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm text-center">
+                <div class="text-3xl font-extrabold text-rose-500 dark:text-rose-400" id="deprecatedCount">4</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1 uppercase tracking-wider">Застарілі / Deprecated</div>
+            </div>
+        </div>
+
+        <!-- Interactive Controls -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800/80 mb-8 space-y-6">
+            <!-- Search & Filter Wrapper -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Search Input -->
+                <div class="md:col-span-2 relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </span>
+                    <input type="text" id="searchInput" placeholder="Шукати оператор, опис або приклад... / Search name, description or example..." class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm transition">
+                </div>
+                <!-- Category Select (Mobile/Desktop) -->
+                <div>
+                    <select id="categoryFilter" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm transition">
+                        <option value="all">Усі категорії / All Categories</option>
+                        <option value="basic">Базові / Basic Operators</option>
+                        <option value="content">Вміст / Content Targeting</option>
+                        <option value="technical">Технічні / Technical & Site</option>
+                        <option value="advanced">Просунуті / Pro & Utility</option>
+                        <option value="deprecated">Застарілі / Deprecated & Historical</option>
+                        <option value="combo">Комбінації / Expert Combos & Dorks</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Quick Category Tabs -->
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-blue-500 text-white shadow-sm transition" data-category="all">Всі / All</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" data-category="basic">Базові</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" data-category="content">Вміст</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" data-category="technical">Технічні</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" data-category="advanced">Просунуті</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" data-category="deprecated">Застарілі</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" data-category="combo">Комбінації (Дорки)</button>
+            </div>
+        </div>
+
+        <!-- Dynamic Counter Text -->
+        <div class="mb-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
+            Показано: <span id="displayedCount" class="font-bold text-slate-800 dark:text-slate-200">0</span> з <span id="maxCount" class="font-bold text-slate-800 dark:text-slate-200">0</span>
+        </div>
+
+        <!-- Operators Grid -->
+        <div id="operatorsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Injection of Cards via JS -->
+        </div>
+
+        <!-- No Results -->
+        <div id="noResults" class="hidden text-center py-20">
+            <svg class="w-16 h-16 mx-auto text-slate-300 dark:text-slate-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <p class="text-lg font-medium text-slate-500 dark:text-slate-400">Нічого не знайдено / No matches found</p>
+            <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">Спробуйте змінити пошуковий запит або категорію</p>
+        </div>
+    </main>
+
+    <!-- Global Toast Notification System -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-emerald-600 text-white px-5 py-3.5 rounded-xl shadow-xl flex items-center space-x-3 pointer-events-none">
+        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        <span class="text-sm font-medium" id="toastMessage">Приклад скопійовано! / Example copied!</span>
+    </div>
+
+    <script>
+        // Full Dataset of 48 Google Search Operators and Expert Combos
+        const operators = [
+            // --- BASIC OPERATORS (1-9) ---
+            {
+                name: '""',
+                syntax: '"term"',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Forces exact match search. Prevents synonyms, autocorrection, and matches must appear in this order.',
+                descUA: 'Примусовий пошук точного збігу. Виключає синоніми та автовиправлення. Слова мають йти у вказаному порядку.',
+                example: '"seo audit checklist"',
+                testLink: 'https://www.google.com/search?q=%22seo+audit+checklist%22'
+            },
+            {
+                name: 'OR',
+                syntax: 'term1 OR term2',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Logical OR. Finds pages containing either term1 or term2 (or both). Alternately, use the pipe character (|).',
+                descUA: 'Логічне АБО. Знаходить сторінки, що містять або термін1, або термін2 (або обидва). Можна використовувати символ (|).',
+                example: 'apple OR orange',
+                testLink: 'https://www.google.com/search?q=apple+OR+orange'
+            },
+            {
+                name: 'AND',
+                syntax: 'term1 AND term2',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Logical AND. Returns only pages that contain all specified terms. Automatically used by Google under the hood.',
+                descUA: 'Логічне ТА. Повертає тільки сторінки, що містять усі вказані слова. Google використовує його автоматично.',
+                example: 'python AND django',
+                testLink: 'https://www.google.com/search?q=python+AND+django'
+            },
+            {
+                name: '-',
+                syntax: '-term',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Excludes a specific word or phrase from search results. Crucial for filtering out irrelevant homonyms.',
+                descUA: 'Виключає конкретне слово або фразу з результатів пошуку. Корисно для відсікання зайвих омонімів.',
+                example: 'jaguar -car',
+                testLink: 'https://www.google.com/search?q=jaguar+-car'
+            },
+            {
+                name: '*',
+                syntax: 'term * term',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Wildcard. Acts as a placeholder that matches any single or multiple words in a phrase.',
+                descUA: 'Символ узагальнення (зірочка). Працює як заповнювач для будь-якого слова або кількох слів у фразі.',
+                example: 'how to * a website',
+                testLink: 'https://www.google.com/search?q=how+to+*+a+website'
+            },
+            {
+                name: '()',
+                syntax: '(term1 OR term2) term3',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Grouping. Controls query execution priority and groups operators for highly structured logic.',
+                descUA: 'Групування дужками. Визначає пріоритет виконання запиту та групує логічні оператори.',
+                example: '(wordpress OR webflow) designer',
+                testLink: 'https://www.google.com/search?q=%28wordpress+OR+webflow%29+designer'
+            },
+            {
+                name: '$',
+                syntax: 'product $price',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Price filter. Finds products with prices matching or close to the specified dollar amount.',
+                descUA: 'Фільтр за ціною. Знаходить товари, вартість яких близька або дорівнює вказаній сумі у доларах.',
+                example: 'camera $400',
+                testLink: 'https://www.google.com/search?q=camera+%24400'
+            },
+            {
+                name: '€',
+                syntax: 'product €price',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Euro price filter. Restricts products to the exact or close Euro currency amount.',
+                descUA: 'Фільтр за ціною в євро. Обмежує пошук товарів за вказаною сумою у валюті євро.',
+                example: 'scooter €250',
+                testLink: 'https://www.google.com/search?q=scooter+%E2%82%AC250'
+            },
+            {
+                name: '#',
+                syntax: '#hashtag',
+                category: 'basic',
+                colorClass: 'border-blue-500 dark:border-blue-400 bg-blue-500/5',
+                badgeBg: 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300',
+                descEN: 'Hashtag search. Helps locate posts containing specific tags on social media indexes.',
+                descUA: 'Пошук за хештегами. Допомагає знаходити публікації з відповідними тегами у соціальних мережах.',
+                example: '#SEOtips',
+                testLink: 'https://www.google.com/search?q=%23SEOtips'
+            },
+
+            // --- TECHNICAL / SITE OPERATORS (10-21) ---
+            {
+                name: 'site:',
+                syntax: 'site:domain.com',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Restricts search results to a specific domain, top-level domain, or subdomain.',
+                descUA: 'Обмежує результати пошуку лише одним доменом, доменом верхнього рівня чи піддоменом.',
+                example: 'site:nasa.gov "mars"',
+                testLink: 'https://www.google.com/search?q=site%3Anasa.gov+%22mars%22'
+            },
+            {
+                name: 'filetype:',
+                syntax: 'filetype:extension',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Returns only files with the exact format extension specified (PDF, XLS, CSV, etc.).',
+                descUA: 'Повертає лише документи з чітко визначеним розширенням файлу (PDF, XLS, CSV тощо).',
+                example: 'resume template filetype:docx',
+                testLink: 'https://www.google.com/search?q=resume+template+filetype%3Adocx'
+            },
+            {
+                name: 'ext:',
+                syntax: 'ext:extension',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Shortcut for "filetype:". Behaves exactly the same for searching specific file extensions.',
+                descUA: 'Скорочення від "filetype:". Працює ідентично для пошуку конкретних розширень документів.',
+                example: 'budget plan ext:xlsx',
+                testLink: 'https://www.google.com/search?q=budget+plan+ext%3Axlsx'
+            },
+            {
+                name: 'related:',
+                syntax: 'related:domain.com',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Finds websites Google deems structurally or contextually similar to the domain specified.',
+                descUA: 'Знаходить веб-сайти, які Google вважає схожими за структурою або тематикою до вказаного.',
+                example: 'related:nytimes.com',
+                testLink: 'https://www.google.com/search?q=related%3Anytimes.com'
+            },
+            {
+                name: 'cache:',
+                syntax: 'cache:domain.com/page',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Accesses the latest saved text version of a page inside Google’s historical index.',
+                descUA: 'Показує останню закешовану текстову версію веб-сторінки з бази індексації Google.',
+                example: 'cache:wikipedia.org',
+                testLink: 'https://www.google.com/search?q=cache%3Awikipedia.org'
+            },
+            {
+                name: 'loc:',
+                syntax: 'loc:location "term"',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Restricts index query targeting to a specified city, region, or geographical area.',
+                descUA: 'Обмежує пошук за конкретним містом, регіоном чи географічною зоною.',
+                example: 'loc:"San Francisco" coffee',
+                testLink: 'https://www.google.com/search?q=loc%3A%22San+Francisco%22+coffee'
+            },
+            {
+                name: 'source:',
+                syntax: 'source:name',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Restricts results to articles from a specific news organization inside Google News index.',
+                descUA: 'Обмежує результати статтями від конкретної новинної агенції у сервісі Новини Google.',
+                example: 'apple source:reuters',
+                testLink: 'https://www.google.com/search?q=apple+source%3Areuters'
+            },
+            {
+                name: 'blogurl:',
+                syntax: 'blogurl:domain.com',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Restricts searches specifically to blog domains matching the specified address query.',
+                descUA: 'Спеціалізований оператор, який звужує видачу до доменів блогів, які містять вказану адресу.',
+                example: 'blogurl:blogspot.com tech',
+                testLink: 'https://www.google.com/search?q=blogurl%3Ablogspot.com+tech'
+            },
+            {
+                name: 'inpostauthor:',
+                syntax: 'inpostauthor:name',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Finds blog posts written by a specific author (works best within Google Blog Search index).',
+                descUA: 'Шукає блоги та публікації, створені конкретним автором (найкраще працює у пошуку блогів).',
+                example: 'inpostauthor:"John Doe"',
+                testLink: 'https://www.google.com/search?q=inpostauthor%3A%22John+Doe%22'
+            },
+            {
+                name: 'allinpostauthor:',
+                syntax: 'allinpostauthor:first last',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Forces all specified names to match the blog post author field concurrently.',
+                descUA: 'Вимагає повної та одночасної відповідності імені та прізвища автора в полі автора блогу.',
+                example: 'allinpostauthor:Matt Cutts',
+                testLink: 'https://www.google.com/search?q=allinpostauthor+Matt+Cutts'
+            },
+            {
+                name: 'inposttitle:',
+                syntax: 'inposttitle:word',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Restricts Google blog search to posts containing the search word inside the blog post title.',
+                descUA: 'Звужує пошук по блогах до публікацій, які містять визначене слово безпосередньо в заголовку.',
+                example: 'inposttitle:marketing',
+                testLink: 'https://www.google.com/search?q=inposttitle%3Amarketing'
+            },
+            {
+                name: 'safesearch:',
+                syntax: 'safesearch:term',
+                category: 'technical',
+                colorClass: 'border-emerald-500 dark:border-emerald-400 bg-emerald-500/5',
+                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300',
+                descEN: 'Excludes explicit, adult content strictly from matching search query targets.',
+                descUA: 'Фільтрує результати, повністю виключаючи сайти "для дорослих" та неприйнятний вміст для запиту.',
+                example: 'safesearch:cartoons',
+                testLink: 'https://www.google.com/search?q=safesearch%3Acartoons'
+            },
+
+            // --- CONTENT OPERATORS (22-31) ---
+            {
+                name: 'intitle:',
+                syntax: 'intitle:term',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Finds pages with the specified single term inside the HTML title element.',
+                descUA: 'Показує веб-сторінки, які містять вказане слово всередині HTML-тегу title.',
+                example: 'intitle:recruitment',
+                testLink: 'https://www.google.com/search?q=intitle%3Arecruitment'
+            },
+            {
+                name: 'allintitle:',
+                syntax: 'allintitle:term1 term2',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Forces ALL specified terms to appear simultaneously inside the page title element.',
+                descUA: 'Зобов’язує Google виводити лише ті сайти, де УСІ перелічені слова є в заголовку сторінки.',
+                example: 'allintitle:javascript cheat sheet',
+                testLink: 'https://www.google.com/search?q=allintitle%3Ajavascript+cheat+sheet'
+            },
+            {
+                name: 'inurl:',
+                syntax: 'inurl:term',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Searches for the specified keyword inside the slug, path, or query string of URLs.',
+                descUA: 'Здійснює пошук вказаного ключового слова безпосередньо у структурі адреси (URL).',
+                example: 'inurl:login',
+                testLink: 'https://www.google.com/search?q=inurl%3Alogin'
+            },
+            {
+                name: 'allinurl:',
+                syntax: 'allinurl:term1 term2',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Forces all target search keywords to exist in the web page URL structure together.',
+                descUA: 'Вимагає, щоб усі вказані слова одночасно містилися в адресі посилання (URL).',
+                example: 'allinurl:wp-content uploads',
+                testLink: 'https://www.google.com/search?q=allinurl%3Awp-content+uploads'
+            },
+            {
+                name: 'intext:',
+                syntax: 'intext:term',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Forces the word to appear strictly in the visible body content of the webpage.',
+                descUA: 'Показує лише ті результати, у яких слово обов’язково міститься у головному тексті сторінки.',
+                example: 'intext:"free bitcoin"',
+                testLink: 'https://www.google.com/search?q=intext%3A%22free+bitcoin%22'
+            },
+            {
+                name: 'allintext:',
+                syntax: 'allintext:term1 term2',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Restricts index retrieval to pages holding every target word within the body content copy.',
+                descUA: 'Звужує видачу до сторінок, у яких усі вказані слова присутні безпосередньо в тілі тексту.',
+                example: 'allintext:bootstrap setup manual',
+                testLink: 'https://www.google.com/search?q=allintext%3Abootstrap+setup+manual'
+            },
+            {
+                name: 'inanchor:',
+                syntax: 'inanchor:term',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Finds pages that are linked to from other pages using the specified anchor text.',
+                descUA: 'Повертає сторінки, на які посилаються інші ресурси з використанням вказаного анкорного тексту.',
+                example: 'inanchor:"download tool"',
+                testLink: 'https://www.google.com/search?q=inanchor%3A%22download+tool%22'
+            },
+            {
+                name: 'allinanchor:',
+                syntax: 'allinanchor:term1 term2',
+                category: 'content',
+                colorClass: 'border-purple-500 dark:border-purple-400 bg-purple-500/5',
+                badgeBg: 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300',
+                descEN: 'Requires all words to appear in the anchor clickable text of inbound hyperlinks.',
+                descUA: 'Всі перелічені слова мають міститися в клікабельному тексті (анкорі) зовнішніх посилань.',
+                example: 'allinanchor:best local service',
+                testLink: 'https://www.google.com/search?q=allinanchor%3Abest+local+service'
+            },
+
+            // --- ADVANCED / UTILITY OPERATORS (32-38) ---
+            {
+                name: 'AROUND(X)',
+                syntax: 'term1 AROUND(X) term2',
+                category: 'advanced',
+                colorClass: 'border-amber-500 dark:border-amber-400 bg-amber-500/5',
+                badgeBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300',
+                descEN: 'Proximity search. Finds pages where the first term is within X words of the second term.',
+                descUA: 'Пошук з урахуванням відстані. Знаходить слова, розташовані не далі ніж за X слів одне від одного.',
+                example: 'marketing AROUND(3) automation',
+                testLink: 'https://www.google.com/search?q=marketing+AROUND%283%29+automation'
+            },
+            {
+                name: '..',
+                syntax: 'num1..num2',
+                category: 'advanced',
+                colorClass: 'border-amber-500 dark:border-amber-400 bg-amber-500/5',
+                badgeBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300',
+                descEN: 'Number ranges. Matches any numeric values or years between the specified minimum and maximum.',
+                descUA: 'Діапазон чисел. Шукає будь-які цифри, дати, ціни або роки у проміжку від мінімального до максимального.',
+                example: 'monitor $200..$500 2024..2026',
+                testLink: 'https://www.google.com/search?q=monitor+%24200..%24500+2024..2026'
+            },
+            {
+                name: 'define:',
+                syntax: 'define:word',
+                category: 'advanced',
+                colorClass: 'border-amber-500 dark:border-amber-400 bg-amber-500/5',
+                badgeBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300',
+                descEN: 'Dictionary. Displays direct spelling, definitions, and word pronunciations in an elegant widget.',
+                descUA: 'Словник. Виводить тлумачення, правопис та озвучку вимови слова у виді окремої картки.',
+                example: 'define:metaphor',
+                testLink: 'https://www.google.com/search?q=define%3Ametaphor'
+            },
+            {
+                name: 'weather:',
+                syntax: 'weather:location',
+                category: 'advanced',
+                colorClass: 'border-amber-500 dark:border-amber-400 bg-amber-500/5',
+                badgeBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300',
+                descEN: 'Weather widget. Returns local radar, temperatures, and forecast details for specified areas.',
+                descUA: 'Віджет погоди. Виводить поточну температуру, опади та прогноз для вказаної місцевості.',
+                example: 'weather:London',
+                testLink: 'https://www.google.com/search?q=weather%3ALondon'
+            },
+            {
+                name: 'stocks:',
+                syntax: 'stocks:ticker',
+                category: 'advanced',
+                colorClass: 'border-amber-500 dark:border-amber-400 bg-amber-500/5',
+                badgeBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300',
+                descEN: 'Financial widget. Brings up stock data, real-time charts, and market indicators.',
+                descUA: 'Фінансовий віджет. Відображає курс акцій, графіки торгів та ринкову інформацію за тікером.',
+                example: 'stocks:AAPL',
+                testLink: 'https://www.google.com/search?q=stocks%3AAAPL'
+            },
+            {
+                name: 'map:',
+                syntax: 'map:location',
+                category: 'advanced',
+                colorClass: 'border-amber-500 dark:border-amber-400 bg-amber-500/5',
+                badgeBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300',
+                descEN: 'Forces Google to bypass typical results and prioritize geographic maps for locations.',
+                descUA: 'Змушує пошуковик пріоритезувати карти та геолокаційні відомості для вказаного місця.',
+                example: 'map:Paris',
+                testLink: 'https://www.google.com/search?q=map%3AParis'
+            },
+            {
+                name: 'movie:',
+                syntax: 'movie:title',
+                category: 'advanced',
+                colorClass: 'border-amber-500 dark:border-amber-400 bg-amber-500/5',
+                badgeBg: 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300',
+                descEN: 'Finds movie descriptions, run times, reviews, cast details, or local cinema showtimes.',
+                descUA: 'Знаходить опис кінофільму, рецензії, список акторів або сеанси у кінотеатрах поруч.',
+                example: 'movie:interstellar',
+                testLink: 'https://www.google.com/search?q=movie%3Ainterstellar'
+            },
+
+            // --- DEPRECATED OPERATORS (39-42) ---
+            {
+                name: 'link:',
+                syntax: 'link:domain.com',
+                category: 'deprecated',
+                colorClass: 'border-rose-500 dark:border-rose-400 bg-rose-500/5',
+                badgeBg: 'bg-rose-100 dark:bg-rose-900/40 text-rose-800 dark:text-rose-300',
+                descEN: 'Deprecated. Used to list pages linking to a domain. Officially retired by Google.',
+                descUA: 'Застарілий. Раніше шукав сторінки, що посилаються на домен. Офіційно відключений Google.',
+                example: 'link:microsoft.com',
+                testLink: 'https://www.google.com/search?q=link%3Amicrosoft.com'
+            },
+            {
+                name: 'info:',
+                syntax: 'info:domain.com',
+                category: 'deprecated',
+                colorClass: 'border-rose-500 dark:border-rose-400 bg-rose-500/5',
+                badgeBg: 'bg-rose-100 dark:bg-rose-900/40 text-rose-800 dark:text-rose-300',
+                descEN: 'Deprecated. Returned summary site details, cached pages, or similar URLs.',
+                descUA: 'Застарілий. Показував зведену інформацію про сайт, його кеш та споріднені веб-адреси.',
+                example: 'info:google.com',
+                testLink: 'https://www.google.com/search?q=info%3Agoogle.com'
+            },
+            {
+                name: 'id:',
+                syntax: 'id:domain.com',
+                category: 'deprecated',
+                colorClass: 'border-rose-500 dark:border-rose-400 bg-rose-500/5',
+                badgeBg: 'bg-rose-100 dark:bg-rose-900/40 text-rose-800 dark:text-rose-300',
+                descEN: 'Deprecated. Behaved as an alias of the info: operator to query domain identity.',
+                descUA: 'Застарілий. Використовувався як альтернативний синонім до оператора info:.',
+                example: 'id:apple.com',
+                testLink: 'https://www.google.com/search?q=id%3Aapple.com'
+            },
+            {
+                name: 'datarange:',
+                syntax: 'daterange:YYDDD-YYDDD',
+                category: 'deprecated',
+                colorClass: 'border-rose-500 dark:border-rose-400 bg-rose-500/5',
+                badgeBg: 'bg-rose-100 dark:bg-rose-900/40 text-rose-800 dark:text-rose-300',
+                descEN: 'Partially Deprecated. Restricts search to Julian date ranges. Replaced by "Before/After" filter UI.',
+                descUA: 'Частково застарілий. Обмежував пошук юліанськими датами. Замінений фільтрами інтерфейсу (До/Після).',
+                example: 'marketing daterange:2451545-2451555',
+                testLink: 'https://www.google.com/search?q=marketing+daterange%3A2451545-2451555'
+            },
+
+            // --- COMBINATIONS & SECURITY DORKS (43-48) ---
+            {
+                name: 'Audit File Types',
+                syntax: 'site:domain.com filetype:extension',
+                category: 'combo',
+                colorClass: 'border-indigo-500 dark:border-indigo-400 bg-indigo-500/5',
+                badgeBg: 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300',
+                descEN: 'Dorking Combo. Audit indexed PDFs or specific spreadsheets on your target domain.',
+                descUA: 'Комбо-дорк. Дозволяє шукати індексовані конфіденційні PDF або таблиці на вашому власному сайті.',
+                example: 'site:nasa.gov filetype:pdf',
+                testLink: 'https://www.google.com/search?q=site%3Anasa.gov+filetype%3Apdf'
+            },
+            {
+                name: 'Expose Subdomains',
+                syntax: 'site:*.domain.com -www.domain.com',
+                category: 'combo',
+                colorClass: 'border-indigo-500 dark:border-indigo-400 bg-indigo-500/5',
+                badgeBg: 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300',
+                descEN: 'Wildcard domain mapping. Exposes subdomains of a site by excluding the main "www" site.',
+                descUA: 'Пошук піддоменів. Виявляє приховані піддомени сайту шляхом явного виключення домену "www".',
+                example: 'site:*.wikipedia.org -site:www.wikipedia.org',
+                testLink: 'https://www.google.com/search?q=site%3A*.wikipedia.org+-site%3Awww.wikipedia.org'
+            },
+            {
+                name: 'Open Directory Hunt',
+                syntax: 'site:domain.com "index of /"',
+                category: 'combo',
+                colorClass: 'border-indigo-500 dark:border-indigo-400 bg-indigo-500/5',
+                badgeBg: 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300',
+                descEN: 'Auditing index directories. Locates exposed web folders, server directories, and file trees.',
+                descUA: 'Пошук відкритих папок. Допомагає знаходити незахищені веб-каталоги та файлові дерева серверів.',
+                example: 'site:gov "index of /" filetype:xls',
+                testLink: 'https://www.google.com/search?q=site%3Agov+%22index+of+%2F%22+filetype%3Axls'
+            },
+            {
+                name: 'Expose CMS Uploads',
+                syntax: 'site:domain.com inurl:wp-content/uploads',
+                category: 'combo',
+                colorClass: 'border-indigo-500 dark:border-indigo-400 bg-indigo-500/5',
+                badgeBg: 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300',
+                descEN: 'WordPress asset tracking. Locates images, documents, and media directories of WP sites.',
+                descUA: 'Аудит медіафайлів WordPress. Знаходить відкриті архіви завантажень у папках wp-content.',
+                example: 'site:techcrunch.com inurl:wp-content/uploads',
+                testLink: 'https://www.google.com/search?q=site%3Atechcrunch.com+inurl%3Awp-content%2Fuploads'
+            },
+            {
+                name: 'Expose Internal Logs',
+                syntax: 'inurl:log filetype:log',
+                category: 'combo',
+                colorClass: 'border-indigo-500 dark:border-indigo-400 bg-indigo-500/5',
+                badgeBg: 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300',
+                descEN: 'Security auditing. Exposes raw server error logs, database dumps, or application traces.',
+                descUA: 'Аудит кібербезпеки. Допомагає знаходити залишені лог-файли або дампи баз даних серверів.',
+                example: 'inurl:log filetype:log site:edu',
+                testLink: 'https://www.google.com/search?q=inurl%3Alog+filetype%3Alog+site%3Aedu'
+            },
+            {
+                name: 'Uncover Admin Portals',
+                syntax: 'site:domain.com inurl:admin OR inurl:login',
+                category: 'combo',
+                colorClass: 'border-indigo-500 dark:border-indigo-400 bg-indigo-500/5',
+                badgeBg: 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-800 dark:text-indigo-300',
+                descEN: 'Targeting login panels. Discovers administrative portals, dashboards, or secure entry points.',
+                descUA: 'Пошук панелей авторизації. Допомагає знаходити точки входу до адміністративних панелей сайту.',
+                example: 'site:harvard.edu inurl:login OR inurl:admin',
+                testLink: 'https://www.google.com/search?q=site%3Aharvard.edu+inurl%3Alogin+OR+inurl%3Aadmin'
+            }
+        ];
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const lightIcon = document.getElementById('lightIcon');
+        const darkIcon = document.getElementById('darkIcon');
+
+        function initTheme() {
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            }
+        });
+
+        // Copy Clipboard Utility
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // Toast feedback
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 2500);
+        }
+
+        // Render Cards
+        const grid = document.getElementById('operatorsGrid');
+        const noResults = document.getElementById('noResults');
+        const displayedCountSpan = document.getElementById('displayedCount');
+        const maxCountSpan = document.getElementById('maxCount');
+
+        // Populate metadata stats dynamically
+        function updateStats() {
+            document.getElementById('totalCount').innerText = operators.length;
+            document.getElementById('activeCount').innerText = operators.filter(o => o.category !== 'deprecated' && o.category !== 'combo').length;
+            document.getElementById('comboCount').innerText = operators.filter(o => o.category === 'combo').length;
+            document.getElementById('deprecatedCount').innerText = operators.filter(o => o.category === 'deprecated').length;
+            maxCountSpan.innerText = operators.length;
+        }
+
+        function renderCards(filteredData) {
+            grid.innerHTML = '';
+            displayedCountSpan.innerText = filteredData.length;
+            
+            if (filteredData.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+            noResults.classList.add('hidden');
+
+            filteredData.forEach(op => {
+                // Category Label EN/UA
+                let catLabel = op.category.charAt(0).toUpperCase() + op.category.slice(1);
+                if (op.category === 'basic') catLabel = 'Базовий / Basic';
+                if (op.category === 'content') catLabel = 'Вміст / Content';
+                if (op.category === 'technical') catLabel = 'Технічний / Tech';
+                if (op.category === 'advanced') catLabel = 'Просунутий / Advanced';
+                if (op.category === 'deprecated') catLabel = 'Застарілий / Retired';
+                if (op.category === 'combo') catLabel = 'Комбо / Dork';
+
+                const card = document.createElement('div');
+                card.className = `p-6 rounded-2xl border bg-white dark:bg-slate-900 transition-all duration-300 hover:shadow-lg flex flex-col justify-between ${op.colorClass}`;
+                card.innerHTML = `
+                    <div>
+                        <!-- Header -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-lg font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-900 dark:text-white select-all">
+                                ${op.name}
+                            </span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-full ${op.badgeBg}">
+                                ${catLabel}
+                            </span>
+                        </div>
+
+                        <!-- Syntax -->
+                        <div class="mb-4 text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center space-x-1">
+                            <span class="font-semibold text-slate-700 dark:text-slate-300">Синтаксис / Syntax:</span>
+                            <span class="bg-slate-100/60 dark:bg-slate-800/60 px-1.5 py-0.5 rounded break-all">${op.syntax}</span>
+                        </div>
+
+                        <!-- Description English -->
+                        <p class="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 leading-relaxed">
+                            <span class="inline-flex items-center justify-center text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold px-1.5 py-0.5 rounded mr-1.5">EN</span>
+                            ${op.descEN}
+                        </p>
+
+                        <!-- Description Ukrainian -->
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed border-t border-dashed border-slate-100 dark:border-slate-800/80 pt-2.5">
+                            <span class="inline-flex items-center justify-center text-[10px] bg-sky-100 dark:bg-sky-950/55 text-sky-700 dark:text-sky-300 font-bold px-1.5 py-0.5 rounded mr-1.5">UA</span>
+                            ${op.descUA}
+                        </p>
+                    </div>
+
+                    <!-- Example & Action Box -->
+                    <div class="bg-slate-50 dark:bg-slate-950/60 rounded-xl p-4 border border-slate-100 dark:border-slate-800/60">
+                        <div class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1">Приклад / Example:</div>
+                        <div class="font-mono text-xs text-slate-800 dark:text-slate-200 break-words font-semibold select-all mb-3">${op.example}</div>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="copyToClipboard('${op.example}')" class="flex items-center justify-center space-x-1 py-2 px-3 text-xs font-medium rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                                <span>Copy</span>
+                            </button>
+                            <a href="${op.testLink}" target="_blank" class="flex items-center justify-center space-x-1 py-2 px-3 text-xs font-medium rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition">
+                                <span>Google It</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtering logic
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+
+        let activeCategory = 'all';
+
+        function filterOperators() {
+            const query = searchInput.value.toLowerCase().trim();
+            const filtered = operators.filter(op => {
+                const matchesCategory = (activeCategory === 'all') || (op.category === activeCategory);
+                const matchesSearch = op.name.toLowerCase().includes(query) ||
+                                      op.syntax.toLowerCase().includes(query) ||
+                                      op.descEN.toLowerCase().includes(query) ||
+                                      op.descUA.toLowerCase().includes(query) ||
+                                      op.example.toLowerCase().includes(query);
+                return matchesCategory && matchesSearch;
+            });
+            renderCards(filtered);
+        }
+
+        // Listeners
+        searchInput.addEventListener('input', filterOperators);
+        
+        categoryFilter.addEventListener('change', (e) => {
+            activeCategory = e.target.value;
+            // Sync with tabs
+            tabBtns.forEach(btn => {
+                if (btn.getAttribute('data-category') === activeCategory) {
+                    btn.className = "tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-blue-500 text-white shadow-sm transition";
+                } else {
+                    btn.className = "tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
+                }
+            });
+            filterOperators();
+        });
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                activeCategory = btn.getAttribute('data-category');
+                categoryFilter.value = activeCategory;
+                
+                tabBtns.forEach(b => {
+                    b.className = "tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
+                });
+                btn.className = "tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-blue-500 text-white shadow-sm transition";
+                
+                filterOperators();
+            });
+        });
+
+        // Initialize App
+        initTheme();
+        updateStats();
+        renderCards(operators);
+    </script>
+</body>
+</html>
