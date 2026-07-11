@@ -6,7 +6,7 @@ Interactive single-page web application listing 48 Google Search operators, powe
 
 ## 🚀 Live Demo
 
-[Open Interactive Directory](https://USERNAME.github.io/google-search-operators-guide/)
+[Open Interactive Directory](https://nopainnoreason.github.io/-Search-Operators-Master-Directory/)
 
 ## 🛠 Features / Можливості
 
